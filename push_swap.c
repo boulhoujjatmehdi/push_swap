@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/06 17:51:54 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/06 19:20:26 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int ac, char **av)
 {
 	t_lists *a_head;
 	t_lists *b_head;
-	
+	b_head = NULL;
 	set_args_in_list(ac, av, &a_head);
 	print_list(a_head, "\n-a-");
 	print_list(b_head, "-b-");
