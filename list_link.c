@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:16:40 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/05 19:08:39 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/06 16:29:29 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,6 @@ t_lists *get_last(t_lists *ls)
     return ls;
 }
 
-t_lists *get_last(t_lists *ls)
-{
-    int i;
-
-    i = 0;
-    while(ls->next)
-    {
-        ls  = ls->next;
-    }
-    return ls;
-}
 
 void add_list_back(t_lists **lst, t_lists *new_lat)
 {

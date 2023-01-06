@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/05 18:45:21 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:31:40 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,16 @@ void add_list_back(t_lists **lst, t_lists *new_lat);
 
 //operations
 void sa(t_lists **head);
+void sb(t_lists **head);
+void ss(t_lists **a_head, t_lists **b_head);
+void pa(t_lists **a_head, t_lists **b_head);
 void pb(t_lists **aa, t_lists **bb);
 void ra(t_lists **lst);
+void rb(t_lists **lst);
+void rr(t_lists **a_head, t_lists **b_head);
 void rra(t_lists **lst);
-
-
+void rrb(t_lists **lst);
+void rrr(t_lists **a_head, t_lists **b_head);
 
 
 #endif

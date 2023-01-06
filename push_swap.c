@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/06 15:29:20 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/06 17:51:54 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ void set_args_in_list(int ac, char **av, t_lists **head)
 		i++;
 	}
 }
-void print_list(t_lists *lst)
+void print_list(t_lists *lst, char *c)
 {
+	printf("%s  :",c);
 	while(lst)
 	{
-		printf(lst->nb);
+		printf("%d . ",lst->nb);
 		lst = lst->next;	
 	}
+	puts("");
 }
 int	main(int ac, char **av)
 {
@@ -38,20 +40,39 @@ int	main(int ac, char **av)
 	t_lists *b_head;
 	
 	set_args_in_list(ac, av, &a_head);
-	printf("%d\n", a_head->nb);
-	printf("%d\n", a_head->next->nb);
-	printf("%d\n\n", a_head->next->next->nb);
+	print_list(a_head, "\n-a-");
+	print_list(b_head, "-b-");
 
-	rra(&a_head);
+	// sa(&a_head);
+	// print_list(a_head, "\n-a-");
+	// print_list(b_head, "-b-");
+	puts("\npb * 2");
+	pb(&a_head, &b_head);
+	pb(&a_head, &b_head);
+	// pb(&a_head, &b_head);
+	print_list(a_head, "\n-a-");
+	print_list(b_head, "-b-");
 
-	// printf("%d", a_head->nb);
-	printf("%d\n", a_head->nb);
-	// printf("%d ------ ", a_head->next->nb);
-	printf("%d\n", a_head->next->nb);
+	puts("\nsb * 1");
+	sb(&b_head);
+	print_list(a_head, "\n-a-");
+	print_list(b_head, "-b-");
 	
+	puts("\npb * 1");
+	pb(&a_head, &b_head);
+	print_list(a_head, "\n-a-");
+	print_list(b_head, "-b-");
+
+	puts("\nsa * 1");
+	sa(&a_head);
+	print_list(a_head, "\n-a-");
+	print_list(b_head, "-b-");
 
 	
-	printf("%d\n", a_head->next->next->nb);
-	printf("%d\n", a_head->next->next->next->nb);
+	pa(&a_head, &b_head);
+	pa(&a_head, &b_head);
+	pa(&a_head, &b_head);
+	print_list(a_head, "\n-a-");
+	print_list(b_head, "-b-");
 	return (0);
 }

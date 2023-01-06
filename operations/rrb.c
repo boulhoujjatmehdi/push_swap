@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   rrb.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 17:44:52 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/06 17:13:37 by eboulhou         ###   ########.fr       */
+/*   Created: 2023/01/06 17:19:37 by eboulhou          #+#    #+#             */
+/*   Updated: 2023/01/06 17:20:21 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void pb(t_lists **aa, t_lists **bb)
+void rrb(t_lists **lst)
 {
-    t_lists *tmp;
-
-    tmp  = *aa;
-    *aa = tmp->next;
-
-    add_list_front(bb, tmp);
+    rra(lst);
 }
