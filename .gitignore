@@ -1,4 +1,7 @@
 *.o
-
 a.out
+*.a
+*.exe
 
+push_swap
+.vscode/

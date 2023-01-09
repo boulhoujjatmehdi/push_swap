@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/06 17:31:40 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/08 11:52:58 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ void rr(t_lists **a_head, t_lists **b_head);
 void rra(t_lists **lst);
 void rrb(t_lists **lst);
 void rrr(t_lists **a_head, t_lists **b_head);
+
+//get pos
+int get_pos(t_lists *lst, int nb);
+int get_min(t_lists *lst, int pos);
+int get_max(t_lists *lst);
 
 
 #endif
