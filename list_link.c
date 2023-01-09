@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:16:40 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/07 19:54:34 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/09 14:07:10 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ t_lists *new_node(int nb)
     t_lists *new;
     new = malloc(sizeof(t_lists));
     new->nb = nb;
+    new->pos = 0;
     new->next = NULL;
     new->weight = 0;
     return new;
@@ -40,7 +41,6 @@ t_lists *get_last(t_lists *ls)
     return ls;
 }
 
-
 void add_list_back(t_lists **lst, t_lists *new_lat)
 {
     t_lists *tmp;
@@ -51,4 +51,17 @@ void add_list_back(t_lists **lst, t_lists *new_lat)
         tmp = get_last(*lst);
         tmp->next = new_lat;
     }
+}
+
+int get_lenght(t_lists *lst)
+{
+    int i;
+
+    i = 0;
+    while(lst)
+    {
+        lst = lst->next;
+        i++;
+    }
+    return i;
 }

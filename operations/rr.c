@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:16:40 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/06 17:18:09 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/09 19:10:50 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,5 @@ void rr(t_lists **a_head, t_lists **b_head)
 {
     ra(a_head);
     rb(b_head);
+    
 }

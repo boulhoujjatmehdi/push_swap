@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_files.c                                        :+:      :+:    :+:   */
+/*   gets_file.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 11:46:47 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/08 11:47:38 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/09 15:40:07 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int get_pos(t_lists *lst, int nb)
 	return 0;
 }
 
-int get_min(t_lists *lst, int pos)
+int get_min_5(t_lists *lst, int pos)
 {
 	int nb;
 	t_lists *lst2;

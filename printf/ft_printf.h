@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 17:14:45 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/09 19:06:06 by eboulhou         ###   ########.fr       */
+/*   Created: 2022/10/24 11:39:12 by eboulhou          #+#    #+#             */
+/*   Updated: 2023/01/09 19:34:41 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-void    rb(t_lists **lst)
-{
-    t_lists *tmp;
+# include <stdarg.h>
+# include <unistd.h>
+# include <stdlib.h>
 
-    tmp = *lst;
-    *lst = tmp->next;
-    tmp->next = NULL;
-    add_list_back(lst, tmp);
-}
+int	ft_printf(const char *format, ...);
+int	ft_putchar(char c);
+int	ft_putstr(char *str );
+int	ft_conv(unsigned long dec, char *base, int boole);
+//--------SECOND FILE------------
+int	ft_itoaa(int nb);
+int	ft_uitoa(unsigned int nb);
+int	ft_itohex(long dec, char *base, char c);
+
+#endif
