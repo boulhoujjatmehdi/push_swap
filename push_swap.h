@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/09 20:20:44 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/11 10:33:27 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ typedef struct s_lists
     int nb;
     int pos;
     int weight;
+    int w_a;
+    int w_b;
+    int ra;
+    int rb;
     struct s_lists *next;
 } t_lists;
 
@@ -57,14 +61,22 @@ void rr(t_lists **a_head, t_lists **b_head);
 void rra(t_lists **lst);
 void rrb(t_lists **lst);
 void rrr(t_lists **a_head, t_lists **b_head);
+t_lists *get_before_last(t_lists *lst);
 
-// get pos
+// get functions file
 int get_pos(t_lists *lst, int nb);
 int get_min_5(t_lists *lst, int pos);
 int get_max(t_lists *lst);
+int get_min(t_lists *lst);
+int get_big_min(t_lists *lst, int nb);
 
 // sort_file
 void sort_general(t_lists **a_head, t_lists **b_head);
 int get_big_min(t_lists *lst, int nb);
 int get_min(t_lists *lst);
+
+//ft_utils
+void initialize_weight(t_lists *aa);
+
+
 #endif

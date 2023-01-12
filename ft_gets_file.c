@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   gets_file.c                                        :+:      :+:    :+:   */
+/*   ft_gets_file.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 11:46:47 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/09 15:40:07 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/10 12:16:03 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,38 @@ int get_max(t_lists *lst)
 		lst = lst->next;
 	}
 	return nb;
+}
+
+int get_min(t_lists *lst)
+{
+	int tmp;
+
+	tmp = lst->nb;
+	while(lst)
+	{
+		if(tmp > lst->nb)
+			tmp = lst->nb;
+		lst = lst->next;
+	}
+	return tmp;
+}
+
+int get_big_min(t_lists *lst, int nb)
+{
+	
+	int tmp;
+
+	if (nb < get_min(lst))
+	{
+		return get_max(lst);
+	}
+
+	tmp = INT32_MIN;
+	while(lst)
+	{
+		if (nb > lst->nb && lst->nb > tmp)
+			tmp = lst->nb;
+		lst = lst->next;
+	}
+	return tmp;
 }

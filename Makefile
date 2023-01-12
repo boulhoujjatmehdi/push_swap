@@ -1,6 +1,6 @@
 OPE = pa.c    pb.c    ra.c    rb.c    rr.c    rra.c   rrb.c   rrr.c   sa.c    sb.c    ss.c
 
-SRC =  push_swap.c list_link.c gets_file.c sort_file.c $(patsubst %,operations/%,$(OPE))
+SRC =  ft_push_swap.c ft_list_link.c ft_gets_file.c ft_sort_file.c ft_utils.c $(patsubst %,operations/%,$(OPE))
 
 NAME = push_swap
 CCF = cc -Wall -Wextra -Werror

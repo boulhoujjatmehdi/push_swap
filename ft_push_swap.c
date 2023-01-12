@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_push_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/09 19:21:23 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/01/11 17:57:38 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,8 @@ void print_list(t_lists *lst, char *c)
 	while(lst)
 	{
 		printf("%d ",lst->nb);
-		lst = lst->next;	
+		lst = lst->next;
 	}
-	puts("");
 }
 
 int sorted_or_not(t_lists *lst)
@@ -52,7 +51,6 @@ int sort_3(t_lists **head)
 	t_lists *lst;
 	while(!sorted_or_not(*head))
 	{
-		printf("lst\n");
 		lst = *head;
 		if(lst->nb < lst->next->nb)
 		{
@@ -77,7 +75,7 @@ int  push_back_on_right_pos(t_lists **a_head, t_lists **b_head)
 	i = INT32_MAX;
 	lstb = *b_head;
 	lsta = *a_head;
-	
+
 	if(get_max(*a_head) < lstb->nb)
 		return get_min_5(*a_head,0);
 	while(lsta)
@@ -95,7 +93,6 @@ void sort_5(t_lists **a_head, t_lists **b_head, int ac)
 	while(j)
 	{
 		pb(a_head, b_head);
-		puts("pb");
 		j--;
 	}
 	sort_3(a_head);
@@ -108,16 +105,13 @@ void sort_5(t_lists **a_head, t_lists **b_head, int ac)
 		while(i--)
 		{
 			ra(a_head);
-			puts("ra");
 		}
 			pa(a_head, b_head);
-			puts("pa");
 	}
 	j = get_min_5(*a_head, 1);
 	while(j--)
 	{
 		ra(a_head);
-		puts("ra");
 	}
 }
 
@@ -129,7 +123,7 @@ int	main(int ac, char **av)
 	t_lists *b_head;
 	b_head = NULL;
 	a_head = NULL;
-	
+
 	set_args_in_list(ac, av, &a_head);
 	if(ac == 5||ac == 6)
 		sort_5(&a_head, &b_head, ac);
@@ -137,5 +131,7 @@ int	main(int ac, char **av)
 		sort_3(&a_head);
 	else if (ac > 6)
 		sort_general(&a_head, &b_head);
+
+	print_list(a_head, "--aa--");
 	return (0);
 }
