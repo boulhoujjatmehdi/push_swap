@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:26:22 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/11 18:17:47 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:41:05 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ void push_to_b(t_lists **a_head, t_lists **b_head)
 		pb(a_head, b_head);
 		tt = *a_head;
 		initialize_weight(*a_head);
-		// printf("%d\n----------\n",tmp.nb);
 		lst = *a_head;
 	}
 }

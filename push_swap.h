@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/11 10:33:27 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:30:03 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 // todel
 #include <stdio.h>
-
 // to keep
 #include <unistd.h>
 #include "printf/ft_printf.h"
@@ -48,6 +47,7 @@ void add_list_front(t_lists **first, t_lists *new_first);
 t_lists *get_last(t_lists *ls);
 void add_list_back(t_lists **lst, t_lists *new_lat);
 int get_lenght(t_lists *lst);
+void free_list(t_lists *lst);
 
 // operations
 void sa(t_lists **head);
@@ -62,6 +62,9 @@ void rra(t_lists **lst);
 void rrb(t_lists **lst);
 void rrr(t_lists **a_head, t_lists **b_head);
 t_lists *get_before_last(t_lists *lst);
+
+// args
+void set_args_in_list(int ac, char **av, t_lists **head);
 
 // get functions file
 int get_pos(t_lists *lst, int nb);
@@ -78,5 +81,6 @@ int get_min(t_lists *lst);
 //ft_utils
 void initialize_weight(t_lists *aa);
 
-
+//todelete
+void print_list(t_lists *lst, char *c);
 #endif

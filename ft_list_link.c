@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_link.c                                        :+:      :+:    :+:   */
+/*   ft_list_link.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:16:40 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/09 14:07:10 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/06 17:59:22 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,21 @@ int get_lenght(t_lists *lst)
         i++;
     }
     return i;
+}
+
+void free_list(t_lists *lst)
+{
+    // t_lists *lst;
+    t_lists *tmp;
+
+    // tmp = *head;
+    tmp = lst;
+    while(lst)
+    {
+        tmp = lst->next;
+        free(lst);
+        
+        lst = NULL;
+        lst = tmp;
+    }
 }

@@ -6,31 +6,19 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/11 17:57:38 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:35:48 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-void set_args_in_list(int ac, char **av, t_lists **head)
-{
-	int i;
-	// t_lists *head;
-	i = 1;
-	while(i < ac)
-	{
-		add_list_back(head, new_node(ft_atoi(av[i])));
-		i++;
-	}
-}
-
 void print_list(t_lists *lst, char *c)
 {
-	printf("%s  :",c);
+	ft_printf("%s  :",c);
 	while(lst)
 	{
-		printf("%d ",lst->nb);
+		ft_printf("%d ",lst->nb);
 		lst = lst->next;
 	}
 }
@@ -55,12 +43,10 @@ int sort_3(t_lists **head)
 		if(lst->nb < lst->next->nb)
 		{
 			rra(head);
-			printf("rra\n");
 		}
 		else
 		{
 			sa(head);
-			printf("sa\n");
 		}
 	}
 	return 0;
@@ -125,6 +111,7 @@ int	main(int ac, char **av)
 	a_head = NULL;
 
 	set_args_in_list(ac, av, &a_head);
+	ac = get_lenght(a_head);
 	if(ac == 5||ac == 6)
 		sort_5(&a_head, &b_head, ac);
 	else if (ac == 3 || ac == 4)
@@ -133,5 +120,5 @@ int	main(int ac, char **av)
 		sort_general(&a_head, &b_head);
 
 	print_list(a_head, "--aa--");
-	return (0);
+	// return (0);
 }
