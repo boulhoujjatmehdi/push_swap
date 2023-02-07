@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:04:25 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/06 19:38:33 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/07 10:11:56 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	ft_atoi_spe(const char *str, int *pass )
 	}
 	while (ft_isdigit(str[i]))
 		ret = ret * 10 + str[i++] - 48;
+	if (str[i] != ' ' && str[i] != '\t' && str[i] && (*pass)--)
+		return (0);
 	return (ret * neg);
 }
 
@@ -48,9 +50,9 @@ void	check_dup(t_lists *lst)
 		{
 			if (runner->nb == stable->nb)
 			{
-				free_list(*head);
+				free_list(lst);
 				ft_printf("Error\n");
-				exit(0);
+				exit(33);
 			}
 			runner = runner->next;
 		}

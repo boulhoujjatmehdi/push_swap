@@ -6,91 +6,89 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/08 11:46:47 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/10 12:16:03 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/07 20:18:18 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int get_pos(t_lists *lst, int nb)
+int	get_pos(t_lists *lst, int nb)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(lst)
+	while (lst)
 	{
-		if(lst->nb == nb)
-			return i;
+		if (lst->nb == nb)
+			return (i);
 		i++;
 		lst = lst->next;
 	}
-	return 0;
+	return (0);
 }
 
-int get_min_5(t_lists *lst, int pos)
+int	get_min_5(t_lists *lst, int pos)
 {
-	int nb;
-	t_lists *lst2;
+	int		nb;
+	t_lists	*lst2;
 
 	lst2 = lst;
 	nb = INT32_MAX;
-	while(lst)
+	while (lst)
 	{
-		if(lst->nb < nb)
+		if (lst->nb < nb)
 			nb = lst->nb;
 		lst = lst->next;
 	}
-	if(pos)
+	if (pos)
 		nb = get_pos(lst2, nb);
-	return nb;
+	return (nb);
 }
 
-int get_max(t_lists *lst)
+int	get_max(t_lists *lst)
 {
-	int nb;
-	t_lists *lst2;
+	int		nb;
+	t_lists	*lst2;
 
 	lst2 = lst;
 	nb = INT32_MIN;
-	while(lst)
+	while (lst)
 	{
-		if(lst->nb > nb)
+		if (lst->nb > nb)
 			nb = lst->nb;
 		lst = lst->next;
 	}
-	return nb;
+	return (nb);
 }
 
-int get_min(t_lists *lst)
+int	get_min(t_lists *lst)
 {
-	int tmp;
+	int	tmp;
 
 	tmp = lst->nb;
-	while(lst)
+	while (lst)
 	{
-		if(tmp > lst->nb)
+		if (tmp > lst->nb)
 			tmp = lst->nb;
 		lst = lst->next;
 	}
-	return tmp;
+	return (tmp);
 }
 
-int get_big_min(t_lists *lst, int nb)
+int	get_big_min(t_lists *lst, int nb)
 {
-	
-	int tmp;
+	int	tmp;
 
 	if (nb < get_min(lst))
 	{
-		return get_max(lst);
+		return (get_max(lst));
 	}
-
 	tmp = INT32_MIN;
-	while(lst)
+	while (lst)
 	{
 		if (nb > lst->nb && lst->nb > tmp)
 			tmp = lst->nb;
 		lst = lst->next;
 	}
-	return tmp;
+	return (tmp);
 }

@@ -6,21 +6,20 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:44:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/01/11 18:26:16 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/07 15:51:31 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void initialize_weight(t_lists *aa)
+void	initialize_weight(t_lists *aa)
 {
-    while(aa)
-    {
-        aa->w_a = 0;
-        aa->w_b = 0;
-        aa->ra = 0;
-        aa->rb = 0;
-        aa = aa->next;
-    }
+	while (aa)
+	{
+		aa->w_a = 0;
+		aa->w_b = 0;
+		aa->ra = 0;
+		aa->rb = 0;
+		aa = aa->next;
+	}
 }
-
