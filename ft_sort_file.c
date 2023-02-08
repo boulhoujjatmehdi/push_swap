@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:26:22 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/07 20:19:51 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:28:15 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	set_weight(t_lists *al, t_lists *bl)
 	bb = bl;
 	while (al)
 	{
-		if (get_pos(bl, get_big_min(bl, al->nb)) > get_lenght(bb) / 2
-			&& --al->rb)
+		if (get_pos(bl, get_big_min(bl, al->nb)) > get_lenght(bb) / 2 && --al->rb)
 			al->weight = get_lenght(bb) - get_pos(bl, get_big_min(bl, al->nb));
 		else if (++al->rb)
 			al->weight = get_pos(bl, get_big_min(bl, al->nb));
@@ -32,10 +31,45 @@ int	set_weight(t_lists *al, t_lists *bl)
 		else if (++al->ra)
 			al->weight += get_pos(aa, al->nb);
 		al->w_a = al->weight - al->w_b;
+//************************************************************
+
+		// int wa , wb;
+		// wa = al->w_a;
+		// wb = al->w_b;
+		// while(al->ra == al->rb && wa && wb)
+		// {
+		// 	al->weight--;
+		// 	wa--;
+		// 	wb--;
+		// }
+//************************************************************
+
+		
 		al = al->next;
 	}
 	return (0);
 }
+//************************************************************
+
+// t_lists	get_min_weight(t_lists *lst)
+// {
+// 	int		wmin;
+// 	t_lists	min_node;
+
+// 	wmin = lst->weight;
+// 	min_node = *lst;
+// 	while (lst)
+// 	{
+// 		if (wmin > lst->weight)
+// 		{
+// 			wmin = lst->weight;
+// 			min_node = *lst;
+// 		}
+// 		lst = lst->next;
+// 	}
+// 	return (min_node);
+// }
+
 
 t_lists	get_min_weight(t_lists *lst)
 {
@@ -56,6 +90,10 @@ t_lists	get_min_weight(t_lists *lst)
 	return (min_node);
 }
 
+
+
+//************************************************************
+
 void	push_to_b(t_lists **a_head, t_lists **b_head)
 {
 	t_lists	*lst;
@@ -63,25 +101,55 @@ void	push_to_b(t_lists **a_head, t_lists **b_head)
 	t_lists	*tt;
 
 	lst = *a_head;
-	while (lst)
+	while (get_lenght(*a_head) -5 )
 	{
 		set_weight(*a_head, *b_head);
 		tmp = get_min_weight(lst);
+
+//************************************************************
+		// ft_printf("------------%d ______ %d\n", tmp.nb, tmp.weight);
+
+		while (tmp.ra == tmp.rb && tmp.w_a && tmp.w_b)
+		{
+			if (tmp.ra == 1)
+				rr(a_head, b_head);
+			else
+				rrr(a_head, b_head);
+			tmp.w_a--;
+			tmp.w_b--;
+		}
+//************************************************************
 		while (tmp.w_a--)
 			if (tmp.ra == 1)
 				ra(a_head);
-		else
-			rra(a_head);
+			else
+				rra(a_head);
 		while (tmp.w_b--)
 			if (tmp.rb == 1)
 				rb(b_head);
-		else
-			rrb(b_head);
+			else
+				rrb(b_head);
 		pb(a_head, b_head);
 		tt = *a_head;
 		initialize_weight(*a_head);
 		lst = *a_head;
 	}
+	// print_list(*a_head, "\ntest");
+	sort_5(a_head, b_head, 5);
+	// print_list(*a_head, "\ntest");
+}
+
+void set_on_top(t_lists **head, int nb)
+{
+	int counter;
+	
+	counter = get_pos(*head, nb);
+	if(get_lenght(*head) / 2 > counter)
+		while(counter--)
+			ra(head);
+	else
+		while(get_lenght(*head) > counter++)
+			rra(head);
 }
 
 void	push_back_a(t_lists **a_head, t_lists **b_head)
@@ -96,17 +164,25 @@ void	push_back_a(t_lists **a_head, t_lists **b_head)
 	else if (++rrr)
 		counter = get_pos(*b_head, get_max(*b_head));
 	while (counter--)
-	{
 		if (rrr)
 			rb(b_head);
 		else
 			rrb(b_head);
-	}
 	while (*b_head)
 	{
-		pa(a_head, b_head);
+		if((*b_head)->nb < get_min(*a_head))
+			{
+				set_on_top(a_head, get_min(*a_head));
+				pa(a_head, b_head);
+				// printf("----------------------------\n");
+			}
+		else if(*b_head && get_last(*a_head)->nb > (*b_head)->nb)
+			rra(a_head);
+		else
+			pa(a_head, b_head);
 	}
-	(void)a_head;
+	set_on_top(a_head, get_min(*a_head));
+	
 }
 
 void	sort_general(t_lists **a_head, t_lists **b_head)
@@ -114,4 +190,6 @@ void	sort_general(t_lists **a_head, t_lists **b_head)
 	pb(a_head, b_head);
 	push_to_b(a_head, b_head);
 	push_back_a(a_head, b_head);
+	// printf("sa\n");
+	// print_list(*a_head, "testing");
 }

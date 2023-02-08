@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/07 15:51:08 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/08 17:42:14 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define PUSH_SWAP_H
 
 // todel
-# include <stdio.h>
+// # include <stdio.h>
 // to keep
 # include <unistd.h>
 # include "printf/ft_printf.h"
@@ -23,14 +23,14 @@
 // structs
 typedef struct s_lists
 {
-	int		nb;
-	int		pos;
-	int		weight;
-	int		w_a;
-	int		w_b;
-	int		ra;
-	int		rb;
-	t_lists	*next;
+	int				nb;
+	int				pos;
+	int				weight;
+	int				w_a;
+	int				w_b;
+	int				ra;
+	int				rb;
+	struct s_lists	*next;
 }	t_lists;
 
 typedef struct s_var
@@ -77,7 +77,7 @@ int		get_big_min(t_lists *lst, int nb);
 void	sort_general(t_lists **a_head, t_lists **b_head);
 int		get_big_min(t_lists *lst, int nb);
 int		get_min(t_lists *lst);
-
+void	sort_5(t_lists **a_head, t_lists **b_head, int ac);
 //ft_utils
 void	initialize_weight(t_lists *aa);
 
