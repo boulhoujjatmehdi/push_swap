@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/08 17:45:39 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/09 20:06:24 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,10 +76,10 @@ void	sort_5(t_lists **a_head, t_lists **b_head, int ac)
 	{
 		i = push_back_on_right_pos(a_head, b_head);
 		i = get_pos(*a_head, i);
-	if(i <= 2)
-		while (i--)
-			ra(a_head);
-	else
+		if(i <= 2)
+			while (i--)
+				ra(a_head);
+		else
 			rra(a_head);
 		pa(a_head, b_head);
 	}
@@ -103,13 +103,12 @@ int	main(int ac, char **av)
 	a_head = NULL;
 	set_args_in_list(ac, av, &a_head);
 	ac = get_lenght(a_head);
-	if (ac <= 4)
+	if (ac <= 3)
 		sort_3(&a_head);
-	else if (ac <= 6)
+	else if (ac <= 5)
 		sort_5(&a_head, &b_head, ac);
-	else if (ac > 6)
+	else if (ac >= 6)
 		sort_general(&a_head, &b_head);
-	// print_list(a_head, "\ntest");
 }
 
 

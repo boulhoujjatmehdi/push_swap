@@ -6,11 +6,13 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 17:44:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/07 15:51:31 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/09 15:17:41 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// void shorting (t_lists * )
 
 void	initialize_weight(t_lists *aa)
 {

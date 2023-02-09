@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/08 17:42:14 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/09 17:43:36 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include "printf/ft_printf.h"
 # include "libft/libft.h"
 
-// structs
 typedef struct s_lists
 {
 	int				nb;
@@ -69,6 +68,7 @@ void	set_args_in_list(int ac, char **av, t_lists **head);
 // get functions file
 int		get_pos(t_lists *lst, int nb);
 int		get_min_5(t_lists *lst, int pos);
+int		sort_3(t_lists **head);
 int		get_max(t_lists *lst);
 int		get_min(t_lists *lst);
 int		get_big_min(t_lists *lst, int nb);

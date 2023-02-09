@@ -7,3 +7,4 @@ push_swap
 .vscode/
 .DS_store
 checker
+*.log
