@@ -6,16 +6,13 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/09 17:43:36 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:58:27 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-// todel
-// # include <stdio.h>
-// to keep
 # include <unistd.h>
 # include "printf/ft_printf.h"
 # include "libft/libft.h"
@@ -78,9 +75,14 @@ void	sort_general(t_lists **a_head, t_lists **b_head);
 int		get_big_min(t_lists *lst, int nb);
 int		get_min(t_lists *lst);
 void	sort_5(t_lists **a_head, t_lists **b_head, int ac);
+
 //ft_utils
 void	initialize_weight(t_lists *aa);
+t_lists	get_min_weight(t_lists *lst);
+void	minimize_weight(t_lists *node);
+void	set_on_top(t_lists **head, int nb, int ab);
+void	free_mat(char **mat);
 
 //todelete
-void	print_list(t_lists *lst, char *c);
+// void	print_list(t_lists *lst, char *c);
 #endif

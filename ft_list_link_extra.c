@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:21:08 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/07 20:22:09 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:18:13 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	free_list(t_lists *lst)
 	{
 		tmp = lst->next;
 		free(lst);
-		lst = NULL;
+		lst->next = NULL;
 		lst = tmp;
 	}
 }

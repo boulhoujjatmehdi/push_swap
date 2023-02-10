@@ -6,5 +6,6 @@ a.out
 push_swap
 .vscode/
 .DS_store
-checker
+checker*
 *.log
+push_swap_tester_2.0

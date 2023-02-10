@@ -6,26 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:26:22 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/09 20:26:34 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/10 13:32:25 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	minimize_weight(t_lists *node)
-{
-	int	wa;
-	int	wb;
-
-	wa = node->w_a;
-	wb = node->w_b;
-	while (node->ra == node->rb && wa && wb)
-	{
-		node->weight--;
-		wa--;
-		wb--;
-	}
-}
 
 int	set_weight(t_lists *al, t_lists *bl)
 {
@@ -51,25 +36,6 @@ int	set_weight(t_lists *al, t_lists *bl)
 		al = al->next;
 	}
 	return (0);
-}
-
-t_lists	get_min_weight(t_lists *lst)
-{
-	int		wmin;
-	t_lists	min_node;
-
-	wmin = lst->weight;
-	min_node = *lst;
-	while (lst)
-	{
-		if (wmin > lst->weight)
-		{
-			wmin = lst->weight;
-			min_node = *lst;
-		}
-		lst = lst->next;
-	}
-	return (min_node);
 }
 
 void	push_or_rotate(t_lists tmp, t_lists **a_head, t_lists **b_head)
@@ -105,7 +71,8 @@ void	push_to_b(t_lists **a_head, t_lists **b_head)
 	t_lists	tmp;
 	t_lists	*tt;
 
-	while (get_lenght(*a_head) - 5)
+	pb(a_head, b_head);
+	while (get_lenght(*a_head) - 5 > 0)
 	{
 		set_weight(*a_head, *b_head);
 		tmp = get_min_weight(*a_head);
@@ -113,32 +80,7 @@ void	push_to_b(t_lists **a_head, t_lists **b_head)
 		tt = *a_head;
 		initialize_weight(*a_head);
 	}
-	sort_5(a_head, b_head, 5);
-}
-
-void set_on_top(t_lists **head, int nb, int ab)
-{
-	int	counter;
-
-	counter = get_pos(*head, nb);
-	if (get_lenght(*head) / 2 > counter)
-	{
-		while (counter--)
-			if (ab == 'a')
-				ra(head);
-		else
-			rb(head);
-	}
-	else
-	{
-		while (get_lenght(*head) > counter++)
-		{
-			if (ab == 'a')
-				rra(head);
-			else
-				rrb(head);
-		}
-	}
+	sort_5(a_head, b_head, get_lenght(*a_head));
 }
 
 void	push_back_a(t_lists **a_head, t_lists **b_head)
@@ -166,7 +108,6 @@ void	push_back_a(t_lists **a_head, t_lists **b_head)
 
 void	sort_general(t_lists **a_head, t_lists **b_head)
 {
-	pb(a_head, b_head);
 	push_to_b(a_head, b_head);
 	push_back_a(a_head, b_head);
 }

@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:04:25 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/07 10:11:56 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/10 14:37:07 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,12 @@ void	set_args_in_list(int ac, char **av, t_lists **head)
 				add_list_back(head, new_node(x.tmp));
 			else
 			{
-				while (x.spl[x.j])
-					free(x.spl[x.j++]);
 				free_list(*head);
 				ft_printf("Error\n");
 				exit(0);
 			}
 		}
-		free(x.spl);
+		free_mat(x.spl);
 	}
 	check_dup(*head);
 }
