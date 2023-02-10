@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:04:25 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/10 14:37:07 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/10 22:18:24 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ int	ft_atoi_spe(const char *str, int *pass )
 		if (str[i - 1] == '-')
 			neg = -1;
 	if (!ft_isdigit(str[i]) && (*pass)--)
-	{
 		return (0);
-	}
 	while (ft_isdigit(str[i]))
+	{	
 		ret = ret * 10 + str[i++] - 48;
+		if ((ret < INT32_MIN || ret > INT32_MAX) && (*pass)--)
+			return (0);
+	}
 	if (str[i] != ' ' && str[i] != '\t' && str[i] && (*pass)--)
 		return (0);
 	return (ret * neg);
@@ -52,7 +54,7 @@ void	check_dup(t_lists *lst)
 			{
 				free_list(lst);
 				ft_printf("Error\n");
-				exit(33);
+				exit(6);
 			}
 			runner = runner->next;
 		}
@@ -88,7 +90,7 @@ void	set_args_in_list(int ac, char **av, t_lists **head)
 			{
 				free_list(*head);
 				ft_printf("Error\n");
-				exit(0);
+				exit(3);
 			}
 		}
 		free_mat(x.spl);

@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:16:40 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/07 20:22:05 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/10 22:10:18 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int	get_lenght(t_lists *lst)
 {
 	int	i;
 
+	if (!lst)
+		return (0);
 	i = 0;
 	while (lst)
 	{

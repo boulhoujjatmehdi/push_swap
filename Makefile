@@ -17,20 +17,20 @@ $(NAME):$(LBT) $(PRT) $(SRC)
 	$(CCF) $(SRC) $(LBT) $(PRT) -o $@
 
 $(LBT):
-	make -C libft
+	@make -C libft
 
 $(PRT):
-	make -C printf
+	@make -C printf
 
 clean:
-	make -C libft clean
-	make -C printf clean
-	rm -rf $(OBJ)
+	@make -C libft clean
+	@make -C printf clean
+	@rm -rf $(OBJ)
 
 
 fclean: clean 
-	make -C libft fclean
-	make -C printf fclean
-	rm -rf $(NAME) 
+	@make -C libft fclean
+	@make -C printf fclean
+	@rm -rf $(NAME) 
 
 re:fclean all

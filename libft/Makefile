@@ -8,16 +8,17 @@ BOBJ = ft_lstnew_bonus.o ft_lstadd_front_bonus.o ft_lstsize_bonus.o ft_lstadd_ba
 	ft_lstiter_bonus.o
 
 %.o: %.c 
-	$(CC) -c $< $(CFLAGS)
+	
+	@$(CC) -c $< $(CFLAGS)
 
 all:$(NAME)
 
 $(NAME):$(OBJ)
 	ar -rc $(NAME) $(OBJ)
 bonus:$(BOBJ)
-	ar -rc $(NAME) $(BOBJ)
+	@ar -rc $(NAME) $(BOBJ)
 clean:
-	rm -f *.o
+	@rm -rf *.o
 fclean:clean
-	rm -f $(NAME)
+	@rm -rf $(NAME)
 re:fclean all
