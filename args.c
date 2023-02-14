@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:04:25 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/10 22:18:24 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:41:29 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,20 +80,22 @@ void	set_args_in_list(int ac, char **av, t_lists **head)
 	while (x.i < ac)
 	{
 		x.j = 0;
-		x.spl = ft_split(av[x.i++], ' ');
+		x.spl = ft_split(av[x.i], ' ');
+		if (!*x.spl)
+			x.spl[0] = ft_strdup("a");
 		while (x.spl[x.j])
 		{
-			x.tmp = ft_atoi_spe(x.spl[x.j++], &x.pass);
+			x.tmp = ft_atoi_spe(x.spl[x.j], &x.pass);
 			if (x.pass)
 				add_list_back(head, new_node(x.tmp));
-			else
-			{
+			else if (ft_error(3, "Error\n"))
 				free_list(*head);
-				ft_printf("Error\n");
-				exit(3);
-			}
+			x.j++;
 		}
 		free_mat(x.spl);
+		x.i++;
 	}
 	check_dup(*head);
+	if (!get_lenght(*head))
+		exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:46 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/10 14:59:43 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:48:38 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,28 +84,6 @@ void	sort_5(t_lists **a_head, t_lists **b_head, int ac)
 		pa(a_head, b_head);
 	}
 	set_on_top(a_head, get_min(*a_head), 'a');
-}
-
-int	main(int ac, char **av)
-{
-	t_lists	*a_head;
-	t_lists	*b_head;
-
-	if (ac == 1)
-		return (1);
-	b_head = NULL;
-	a_head = NULL;
-	set_args_in_list(ac, av, &a_head);
-	ac = get_lenght(a_head);
-	if (ac == 0)
-		return (2);
-	if (ac <= 3)
-		sort_3(&a_head);
-	else if (ac <= 5)
-		sort_5(&a_head, &b_head, ac);
-	else if (ac >= 6)
-		sort_general(&a_head, &b_head);
-	free_list(a_head);
 }
 
 // void	print_list(t_lists *lst, char *c)

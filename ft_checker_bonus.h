@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_checker_bonus.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 16:42:44 by eboulhou         ###   ########.fr       */
+/*   Created: 2023/02/10 22:37:42 by eboulhou          #+#    #+#             */
+/*   Updated: 2023/02/14 16:42:22 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef FT_CHECKER_BONUS_H
+# define FT_CHECKER_BONUS_H   
 
-# include <unistd.h>
+//
+// # include <unistd.h>
 # include "printf/ft_printf.h"
 # include "libft/libft.h"
+# include "gnl/get_next_line.h"
 
 typedef struct s_lists
 {
@@ -36,7 +38,15 @@ typedef struct s_var
 	int	k;
 }	t_var;
 
+typedef struct s_move
+{
+	char			*mv;
+	struct s_move	*next;
+}	t_move;
+
 // functions prototypes
+
+int		sorted_or_not(t_lists *lst);
 // linked lists
 t_lists	*new_node(int nb);
 void	add_list_front(t_lists **first, t_lists *new_first);
@@ -46,42 +56,25 @@ int		get_lenght(t_lists *lst);
 void	free_list(t_lists *lst);
 
 // operations
-void	sa(t_lists **head);
-void	sb(t_lists **head);
-void	ss(t_lists **a_head, t_lists **b_head);
-void	pa(t_lists **a_head, t_lists **b_head);
-void	pb(t_lists **aa, t_lists **bb);
-void	ra(t_lists **lst);
-void	rb(t_lists **lst);
-void	rr(t_lists **a_head, t_lists **b_head);
-void	rra(t_lists **lst);
-void	rrb(t_lists **lst);
-void	rrr(t_lists **a_head, t_lists **b_head);
+void	ft_sa(t_lists **head);
+void	ft_sb(t_lists **head);
+void	ft_ss(t_lists **a_head, t_lists **b_head);
+void	ft_pa(t_lists **a_head, t_lists **b_head);
+void	ft_pb(t_lists **aa, t_lists **bb);
+void	ft_ra(t_lists **lst);
+void	ft_rb(t_lists **lst);
+void	ft_rr(t_lists **a_head, t_lists **b_head);
+void	ft_rra(t_lists **lst);
+void	ft_rrb(t_lists **lst);
+void	ft_rrr(t_lists **a_head, t_lists **b_head);
 t_lists	*get_before_last(t_lists *lst);
 
 // args
 void	set_args_in_list(int ac, char **av, t_lists **head);
 
-// get functions file
-int		get_pos(t_lists *lst, int nb);
-int		get_min_5(t_lists *lst, int pos);
-int		sort_3(t_lists **head);
-int		get_max(t_lists *lst);
-int		get_min(t_lists *lst);
-int		get_big_min(t_lists *lst, int nb);
-
-// sort_file
-void	sort_general(t_lists **a_head, t_lists **b_head);
-int		get_big_min(t_lists *lst, int nb);
-int		get_min(t_lists *lst);
-void	sort_5(t_lists **a_head, t_lists **b_head, int ac);
-
-//ft_utils
-void	initialize_weight(t_lists *aa);
-t_lists	get_min_weight(t_lists *lst);
-void	minimize_weight(t_lists *node);
-void	set_on_top(t_lists **head, int nb, int ab);
-void	free_mat(char **mat);
-
+//utils
+int		is_valid(char *str);
+int		add_instruction(t_move **moves, char *str);
+t_move	*new_move(char *str);
 int		ft_error(int nb, char *message);
 #endif
