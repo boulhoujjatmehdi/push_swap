@@ -6,11 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/06 17:14:45 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 15:30:46 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:07:16 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../ft_checker_bonus.h"
 
 void	ft_rb(t_lists **b_head)
 {

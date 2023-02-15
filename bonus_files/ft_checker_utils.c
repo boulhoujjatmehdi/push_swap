@@ -6,11 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:45:26 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 16:28:53 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:09:22 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_checker_bonus.h"
+#include "../ft_checker_bonus.h"
 
 t_move	*new_move(char *str)
 {

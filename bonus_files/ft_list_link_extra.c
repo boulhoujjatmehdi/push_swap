@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_utils_2.c                                       :+:      :+:    :+:   */
+/*   ft_list_link_extra.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 16:27:20 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 16:42:34 by eboulhou         ###   ########.fr       */
+/*   Created: 2023/02/07 20:21:08 by eboulhou          #+#    #+#             */
+/*   Updated: 2023/02/15 20:14:35 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./printf/ft_printf.h"
+#include "../ft_checker_bonus.h"
 
-int	ft_error(int nb, char *message)
+void	free_list(t_lists *lst)
 {
-	ft_printf("%s", message);
-	exit(nb);
-	return (1);
+	t_lists	*tmp;
+
+	tmp = lst;
+	while (lst)
+	{
+		tmp = lst->next;
+		free(lst);
+		lst->next = NULL;
+		lst = tmp;
+	}
 }

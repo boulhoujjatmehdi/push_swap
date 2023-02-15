@@ -7,14 +7,13 @@ OBJ = ft_printf.o \
 CC = cc
 FLAGS = -Wall -Wextra -Werror
 
-
 %.o:%.c
 	@$(CC) $(FLAGS) -c $< 
 
 all: $(NAME)
 
 $(NAME):$(OBJ)
-	ar -rc $(NAME) $(OBJ)
+	@ar -rc $(NAME) $(OBJ)
 
 clean:
 	@rm -f $(OBJ)

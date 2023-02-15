@@ -1,36 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ss.c                                            :+:      :+:    :+:   */
+/*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 17:05:15 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/15 20:07:16 by eboulhou         ###   ########.fr       */
+/*   Created: 2023/01/10 17:44:46 by eboulhou          #+#    #+#             */
+/*   Updated: 2023/02/15 20:15:32 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_checker_bonus.h"
 
-void	ft_ss(t_lists **a_head, t_lists **b_head)
+void	free_mat(char **mat)
 {
-	t_lists	*swap;
-	t_lists	*tmp;
+	int	i;
 
-	if (get_lenght(*a_head) > 1)
+	i = 0;
+	while (mat[i])
 	{
-		tmp = *a_head;
-		swap = tmp->next;
-		tmp->next = tmp->next->next;
-		*a_head = swap;
-		swap->next = tmp;
+		free(mat[i]);
+		i++;
 	}
-	if (get_lenght(*b_head) > 1)
+	free(mat);
+}
+
+void	puterror(char *s, int std)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
 	{
-		tmp = *b_head;
-		swap = tmp->next;
-		tmp->next = tmp->next->next;
-		*b_head = swap;
-		swap->next = tmp;
+		write(std, &s[i], 1);
+		i++;
 	}
+	write(std, "\n", 1);
+}
+
+int	ft_error(int std, int nb, char *message)
+{
+	puterror(message, std);
+	exit(nb);
+	return (1);
 }

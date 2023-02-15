@@ -6,11 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:32:30 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 16:22:12 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:09:52 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_checker_bonus.h"
+#include "../ft_checker_bonus.h"
 
 void	extra_moves(t_move *move, t_lists **a_head, t_lists **b_head)
 {
@@ -66,12 +66,11 @@ int	main(int ac, char **av)
 	while (str)
 	{
 		if (!add_instruction(&moves, str))
-			ft_error(2, "Error\n");
+			ft_error(2, 2, "Error");
 		str = get_next_line(0);
 	}
 	do_moves(moves, &a_head, &b_head);
 	if (b_head || !sorted_or_not(a_head))
-		ft_error(3, "KO\n");
-	ft_printf("OK\n");
-	return (0);
+		ft_error(1, 3, "KO");
+	ft_error(1, 0, "OK");
 }

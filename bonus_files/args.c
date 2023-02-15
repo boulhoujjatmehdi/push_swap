@@ -6,11 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:04:25 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 16:41:29 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:50:37 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_atoi_spe(const char *str, int *pass )
 {
@@ -53,8 +53,7 @@ void	check_dup(t_lists *lst)
 			if (runner->nb == stable->nb)
 			{
 				free_list(lst);
-				ft_printf("Error\n");
-				exit(6);
+				ft_error(2, 6, "Error");
 			}
 			runner = runner->next;
 		}
@@ -88,7 +87,7 @@ void	set_args_in_list(int ac, char **av, t_lists **head)
 			x.tmp = ft_atoi_spe(x.spl[x.j], &x.pass);
 			if (x.pass)
 				add_list_back(head, new_node(x.tmp));
-			else if (ft_error(3, "Error\n"))
+			else if (ft_error(2, 3, "Error"))
 				free_list(*head);
 			x.j++;
 		}

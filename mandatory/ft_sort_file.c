@@ -6,11 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 11:26:22 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/10 13:32:25 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 19:50:37 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	set_weight(t_lists *al, t_lists *bl)
 {

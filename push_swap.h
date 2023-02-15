@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 09:46:44 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 16:42:44 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:44:19 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	sort_general(t_lists **a_head, t_lists **b_head);
 int		get_big_min(t_lists *lst, int nb);
 int		get_min(t_lists *lst);
 void	sort_5(t_lists **a_head, t_lists **b_head, int ac);
-
+int		sorted_or_not(t_lists *lst);
 //ft_utils
 void	initialize_weight(t_lists *aa);
 t_lists	get_min_weight(t_lists *lst);
@@ -83,5 +83,5 @@ void	minimize_weight(t_lists *node);
 void	set_on_top(t_lists **head, int nb, int ab);
 void	free_mat(char **mat);
 
-int		ft_error(int nb, char *message);
+int		ft_error(int std, int nb, char *message);
 #endif

@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ss.c                                            :+:      :+:    :+:   */
+/*   ft_list_link_extra.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/06 17:05:15 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/15 20:07:16 by eboulhou         ###   ########.fr       */
+/*   Created: 2023/02/07 20:21:08 by eboulhou          #+#    #+#             */
+/*   Updated: 2023/02/15 19:50:37 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_checker_bonus.h"
+#include "../push_swap.h"
 
-void	ft_ss(t_lists **a_head, t_lists **b_head)
+void	free_list(t_lists *lst)
 {
-	t_lists	*swap;
 	t_lists	*tmp;
 
-	if (get_lenght(*a_head) > 1)
+	tmp = lst;
+	while (lst)
 	{
-		tmp = *a_head;
-		swap = tmp->next;
-		tmp->next = tmp->next->next;
-		*a_head = swap;
-		swap->next = tmp;
-	}
-	if (get_lenght(*b_head) > 1)
-	{
-		tmp = *b_head;
-		swap = tmp->next;
-		tmp->next = tmp->next->next;
-		*b_head = swap;
-		swap->next = tmp;
+		tmp = lst->next;
+		free(lst);
+		lst->next = NULL;
+		lst = tmp;
 	}
 }

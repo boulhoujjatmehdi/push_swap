@@ -14,7 +14,7 @@ BOBJ = ft_lstnew_bonus.o ft_lstadd_front_bonus.o ft_lstsize_bonus.o ft_lstadd_ba
 all:$(NAME)
 
 $(NAME):$(OBJ)
-	ar -rc $(NAME) $(OBJ)
+	@ar -rc $(NAME) $(OBJ)
 bonus:$(BOBJ)
 	@ar -rc $(NAME) $(BOBJ)
 clean:

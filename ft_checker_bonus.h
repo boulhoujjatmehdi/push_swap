@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:37:42 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/14 16:42:22 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:27:18 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,5 @@ void	set_args_in_list(int ac, char **av, t_lists **head);
 int		is_valid(char *str);
 int		add_instruction(t_move **moves, char *str);
 t_move	*new_move(char *str);
-int		ft_error(int nb, char *message);
+int		ft_error(int std, int nb, char *message);
 #endif
