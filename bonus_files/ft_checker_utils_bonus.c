@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checker_utils.c                                 :+:      :+:    :+:   */
+/*   ft_checker_utils_bonus.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 15:45:26 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/15 20:09:22 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/16 11:59:03 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,40 @@ int	is_valid(char *str)
 		|| !ft_memcmp(str, "ss\n", 4))
 		return (1);
 	return (0);
+}
+
+void	extra_moves(t_move *move, t_lists **a_head, t_lists **b_head)
+{
+	if (!ft_memcmp(move->mv, "rra\n", 4))
+		ft_rra(a_head);
+	else if (!ft_memcmp(move->mv, "rrb\n", 4))
+		ft_rrb(b_head);
+	else if (!ft_memcmp(move->mv, "rrr\n", 4))
+		ft_rrr(a_head, b_head);
+}
+
+void	do_moves(t_move *move, t_lists **a_head, t_lists **b_head)
+{
+	while (move)
+	{
+		if (!ft_memcmp(move->mv, "sa\n", 4))
+			ft_sa(a_head);
+		else if (!ft_memcmp(move->mv, "sb\n", 4))
+			ft_sa(b_head);
+		else if (!ft_memcmp(move->mv, "ss\n", 4))
+			ft_ss(a_head, b_head);
+		else if (!ft_memcmp(move->mv, "pa\n", 4))
+			ft_pa(a_head, b_head);
+		else if (!ft_memcmp(move->mv, "pb\n", 4))
+			ft_pb(a_head, b_head);
+		else if (!ft_memcmp(move->mv, "ra\n", 4))
+			ft_ra(a_head);
+		else if (!ft_memcmp(move->mv, "rb\n", 4))
+			ft_rb(b_head);
+		else if (!ft_memcmp(move->mv, "rr\n", 4))
+			ft_rr(a_head, b_head);
+		else
+			extra_moves(move, a_head, b_head);
+		move = move->next;
+	}
 }

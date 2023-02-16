@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   args.c                                             :+:      :+:    :+:   */
+/*   ft_args_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:04:25 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/15 19:50:37 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:35:54 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../ft_push_swap.h"
 
 int	ft_atoi_spe(const char *str, int *pass )
 {
@@ -31,7 +31,7 @@ int	ft_atoi_spe(const char *str, int *pass )
 	while (ft_isdigit(str[i]))
 	{	
 		ret = ret * 10 + str[i++] - 48;
-		if ((ret < INT32_MIN || ret > INT32_MAX) && (*pass)--)
+		if ((ret * neg < INT32_MIN || ret * neg > INT32_MAX) && (*pass)--)
 			return (0);
 	}
 	if (str[i] != ' ' && str[i] != '\t' && str[i] && (*pass)--)

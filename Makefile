@@ -3,18 +3,20 @@ OPE = pa.c    pb.c    ra.c    rb.c    rr.c    rra.c   rrb.c   rrr.c   sa.c    sb
 GNL = gnl/get_next_line.c gnl/get_next_line_utils.c
 
 
-MDTR = ft_main.c  ft_push_swap.c ft_list_link.c ft_list_link_extra.c ft_gets_file.c ft_sort_file.c ft_utils.c ft_utils_2.c args.c
-BNSS = ft_checker_bonus.c ft_checker_utils.c ft_push_swap.c ft_utils.c args.c ft_list_link.c ft_list_link_extra.c
+MDTR = main.c  push_swap.c list_link.c list_link_extra.c gets_file.c sort_file.c utils.c utils_2.c args.c
+BNS  = checker checker_utils utils args list_link list_link_extra
 
-SRC = 			$(patsubst %,mandatory/%,$(MDTR))\
+SRC = 			$(patsubst %,mandatory/ft_%,$(MDTR))\
 				$(patsubst %,operations/%,$(OPE))
 
-BSRC =  $(GNL) 	$(patsubst %,bonus_files/%,$(BNSS)) \
+BSRC =  $(GNL) 	$(patsubst %,bonus_files/ft_%_bonus.c,$(BNS))\
 				$(patsubst %,operations_mute/ft_%,$(OPE))\
 				$(patsubst %,operations/%,$(OPE))
 
 NAME = push_swap
 
+MANHEAD = ft_push_swap.h
+BONHEAD = ft_checker_bonus.h
 CCF = cc -Wall -Wextra -Werror
 
 PRT = printf/libftprintf.a
@@ -24,10 +26,10 @@ all:$(NAME)
 
 bonus:checker
 
-$(NAME):$(LBT) $(PRT) $(SRC)
+$(NAME):$(LBT) $(PRT) $(SRC) $(MANHEAD)
 	$(CCF) $(SRC) $(LBT) $(PRT) -o $@
 
-checker:$(LBT) $(PRT) $(BSRC)
+checker:$(LBT) $(PRT) $(BSRC) $(BONHEAD)
 	$(CCF) $(BSRC) $(LBT) $(PRT) -o checker
 
 $(LBT):

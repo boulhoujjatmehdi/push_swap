@@ -6,11 +6,11 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 13:16:40 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/15 19:50:37 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:25:40 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../ft_push_swap.h"
 
 t_lists	*new_node(int nb)
 {

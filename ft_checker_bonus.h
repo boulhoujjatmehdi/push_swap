@@ -6,7 +6,7 @@
 /*   By: eboulhou <eboulhou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 22:37:42 by eboulhou          #+#    #+#             */
-/*   Updated: 2023/02/15 12:27:18 by eboulhou         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:26:47 by eboulhou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,6 @@ int		is_valid(char *str);
 int		add_instruction(t_move **moves, char *str);
 t_move	*new_move(char *str);
 int		ft_error(int std, int nb, char *message);
+//checker utils
+void	do_moves(t_move *move, t_lists **a_head, t_lists **b_head);
 #endif
